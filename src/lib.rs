@@ -138,7 +138,7 @@ fn get_signing_input(payload: Payload, algorithm: &Algorithm) -> String {
   let header = Header::new(*algorithm);
   let header_json_str = header.to_json();
   let encoded_header = base64_url_encode(header_json_str.to_string().as_bytes()).to_string();
-  let p = payload.into_iter().map(|(k, v)| (k, v.to_json())).collect();
+  let p = payload.into_iter().map(|(k, v)| (k, v.parse::<i32>().unwrap().to_json())).collect();
   let payload_json = Json::Object(p);
   let encoded_payload = base64_url_encode(payload_json.to_string().as_bytes()).to_string();
   format!("{}.{}", encoded_header, encoded_payload)
