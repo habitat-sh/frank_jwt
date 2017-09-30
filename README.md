@@ -3,6 +3,8 @@ Frank JWT [![Build Status](https://travis-ci.org/GildedHonour/frank_jwt.svg)](ht
 
 Implementation of [JSON Web Tokens](http://jwt.io) in Rust.
 
+**This fork loosens openssl dep to match the version used by habitat and forces all values of the JWT payload to integers. Because integers are better than strings! ...and the github api expects them.**
+
 ## Algorithms and features supported
 - [x] HS256
 - [x] HS384
